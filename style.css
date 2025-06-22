@@ -109,8 +109,10 @@ h6 {
 }
 
 #board {
-  width: 320px;
-  height: 320px;
+  width: 90vmin;
+  height: 90vmin;
+  max-width: 500px;
+  max-height: 500px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
@@ -152,5 +154,5 @@ body {
 
 .cell {
   border: 2px solid var(--blue-border);
-  font-size: 2rem;
+  font-size: calc(8vmin);
 }
