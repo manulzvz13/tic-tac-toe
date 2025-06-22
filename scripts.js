@@ -83,3 +83,27 @@ const GameController = (() => {
 
   return { playTurn, resetGame };
 })();
+
+// DisplayController module
+
+const DisplayController = (() => {
+  const boardContainer = document.getElementById('board');
+
+  // Render the board array to the DOM
+  const render = () => {
+    boardContainer.innerHTML = ""; // Clear previous board
+    const board = Gameboard.getBoard();
+    board.forEach((cell, index) => {
+      const cellDiv = document.createElement('div');
+      cellDiv.classList.add('cell');
+      cellDiv.textContent = cell; // Will show "X", "O", or ""
+      boardContainer.appendChild(cellDiv);
+    });
+  };
+
+  // Initial render
+  render();
+
+  // Expose render if you want to call it again later
+  return { render };
+})();
