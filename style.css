@@ -156,3 +156,11 @@ body {
   border: 2px solid var(--blue-border);
   font-size: calc(8vmin);
 }
+
+.cell.x-mark {
+    color: var(--neon-green-x);
+}
+
+.cell.o-mark {
+    color: var(--hot-pink-o);
+}

@@ -86,6 +86,7 @@ const GameController = (() => {
 
 // DisplayController module
 
+// DisplayController module
 const DisplayController = (() => {
   const boardContainer = document.getElementById('board');
 
@@ -96,7 +97,23 @@ const DisplayController = (() => {
     board.forEach((cell, index) => {
       const cellDiv = document.createElement('div');
       cellDiv.classList.add('cell');
-      cellDiv.textContent = cell; // Will show "X", "O", or ""
+
+      // Add click event listener to each cell
+      cellDiv.addEventListener('click', () => {
+        GameController.playTurn(index); // Play the turn for the clicked cell
+        render(); // Re-render the board after a turn to update display
+      });
+
+      // --- NEW LOGIC FOR STYLING MARKS ---
+      cellDiv.textContent = cell; // This will be "X", "O", or ""
+
+      if (cell === 'X') {
+        cellDiv.classList.add('x-mark');
+      } else if (cell === 'O') {
+        cellDiv.classList.add('o-mark');
+      }
+      // --- END NEW LOGIC ---
+
       boardContainer.appendChild(cellDiv);
     });
   };
