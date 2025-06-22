@@ -41,8 +41,39 @@ p, h1, h2, h3, h4, h5, h6 {
 p {
   text-wrap: pretty;
 }
+
 h1, h2, h3, h4, h5, h6 {
   text-wrap: balance;
 }
 
+/* CSS Layout */
 
+.nav {
+    display: grid;
+    grid-template-columns: auto 1fr;
+
+}
+
+#board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+}
+
+.cell {
+
+}
+
+/* Components */
+
+.game-ui {
+
+}
+
+#board {
+    border: 1px solid gray;
+}
+
+.cell {
+
+}
