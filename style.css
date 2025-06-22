@@ -75,6 +75,12 @@ h6 {
 
 /* CSS Layout and spacing */
 
+body {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
 .game-ui {
   display: flex;
   flex-direction: column;
@@ -103,6 +109,13 @@ h6 {
   align-items: center;
 }
 
+.restart {
+  position: absolute; /* Take out of normal flow */
+  bottom: 1rem; /* Distance from the top of the body */
+  left: 1rem; /* Distance from the left of the body */
+  z-index: 1000; /* Ensure it's above other content if needed */
+}
+
 .restart-button svg {
   width: 3rem;
   height: auto;
@@ -123,6 +136,7 @@ h6 {
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 }
 
 /* Components */
@@ -145,7 +159,13 @@ body {
   background: none;
   border: none;
   cursor: pointer;
-  /* transition: color 0.2s ease-in-out, transform 0.2s ease-in-out; */
+  color: var(--white-text);
+  transition: color 0.2s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.restart-button:hover {
+  color: var(--win-message); /* Example hover effect */
+  transform: scale(1.1); /* Example hover effect */
 }
 
 .restart-button svg {
@@ -155,12 +175,22 @@ body {
 .cell {
   border: 2px solid var(--blue-border);
   font-size: calc(8vmin);
+  transition:
+    box-shadow 0.2s ease-in-out,
+    color 0.2s ease-in-out; /* Smooth transition for shadow and text color */
 }
 
 .cell.x-mark {
-    color: var(--neon-green-x);
+  color: var(--neon-green-x);
 }
 
 .cell.o-mark {
-    color: var(--hot-pink-o);
+  color: var(--hot-pink-o);
+}
+
+.cell:hover {
+  box-shadow:
+    0 0 5px var(--blue-border), /* Inner glow for initial border color */
+    0 0 20px var(--neon-green-x), /* Green outer glow */
+    0 0 35px var(--hot-pink-o); /* Pink outer glow */
 }

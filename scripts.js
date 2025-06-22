@@ -89,6 +89,7 @@ const GameController = (() => {
 // DisplayController module
 const DisplayController = (() => {
   const boardContainer = document.getElementById('board');
+  const restartButton = document.querySelector('.restart-button'); // Get the restart button
 
   // Render the board array to the DOM
   const render = () => {
@@ -100,23 +101,31 @@ const DisplayController = (() => {
 
       // Add click event listener to each cell
       cellDiv.addEventListener('click', () => {
-        GameController.playTurn(index); // Play the turn for the clicked cell
+        // Only allow playing a turn if the game is not over and the cell is empty
+        // You might need to add a method to GameController to check if gameOver is true
+        // For now, let's assume playTurn handles it
+        GameController.playTurn(index);
         render(); // Re-render the board after a turn to update display
       });
 
-      // --- NEW LOGIC FOR STYLING MARKS ---
-      cellDiv.textContent = cell; // This will be "X", "O", or ""
+      cellDiv.textContent = cell;
 
       if (cell === 'X') {
         cellDiv.classList.add('x-mark');
       } else if (cell === 'O') {
         cellDiv.classList.add('o-mark');
       }
-      // --- END NEW LOGIC ---
 
       boardContainer.appendChild(cellDiv);
     });
   };
+
+  // Add event listener for the restart button
+  restartButton.addEventListener('click', () => {
+    GameController.resetGame(); // Call the reset method
+    render(); // Re-render the board to show the cleared state
+  });
+
 
   // Initial render
   render();
