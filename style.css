@@ -73,30 +73,54 @@ h6 {
   text-wrap: balance;
 }
 
-/* CSS Layout */
+/* CSS Layout and spacing */
 
-.nav {
-  display: grid;
-  grid-template-columns: auto 1fr;
+.game-ui {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Full height of viewport */
 }
 
-.nav-section:nth-child(2) {
-  display: grid;
-  grid-template-columns: auto 1fr;
+.nav {
+  width: 100%;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.board-wrapper {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .results {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  gap: 2rem; /* Add spacing between score items */
+  justify-content: flex-end; /* Right-align inside nav */
+  align-items: center;
+}
+
+.restart-button svg {
+  width: 3rem;
+  height: auto;
 }
 
 #board {
+  width: 320px;
+  height: 320px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
+  gap: 2px;
 }
 
 .cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Components */
@@ -105,7 +129,28 @@ body {
   background-color: var(--black-bg);
 }
 
+.results .score {
+  font-size: 1.2rem;
+  text-align: center;
+  margin-top: 0.5rem;
+}
+
 #board {
   border: 1px solid var(--blue-border);
 }
 
+.restart-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  /* transition: color 0.2s ease-in-out, transform 0.2s ease-in-out; */
+}
+
+.restart-button svg {
+  fill: currentColor;
+}
+
+.cell {
+  border: 2px solid var(--blue-border);
+  font-size: 2rem;
+}
