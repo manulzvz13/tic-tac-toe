@@ -1,12 +1,19 @@
 /* CSS Variables */
- 
-:root {
 
+:root {
+  --black-bg: #22223b;
+  --neon-green-x: #39ff14;
+  --hot-pink-o: #ff2079;
+  --blue-border: #00cfff;
+  --win-message: #fff338;
+  --white-text: #fff;
 }
 
 /* Base CSS */
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -21,20 +28,35 @@
 }
 
 body {
+  font-family: "Press Start 2P", monospace;
+  color: var(--white-text);
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
 }
 
-img, picture, video, canvas, svg {
+img,
+picture,
+video,
+canvas,
+svg {
   display: block;
   max-width: 100%;
 }
 
-input, button, textarea, select {
+input,
+button,
+textarea,
+select {
   font: inherit;
 }
 
-p, h1, h2, h3, h4, h5, h6 {
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   overflow-wrap: break-word;
 }
 
@@ -42,38 +64,48 @@ p {
   text-wrap: pretty;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   text-wrap: balance;
 }
 
 /* CSS Layout */
 
 .nav {
-    display: grid;
-    grid-template-columns: auto 1fr;
+  display: grid;
+  grid-template-columns: auto 1fr;
+}
 
+.nav-section:nth-child(2) {
+  display: grid;
+  grid-template-columns: auto 1fr;
+}
+
+.results {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
 }
 
 #board {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, 1fr);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
 }
 
 .cell {
-
 }
 
 /* Components */
 
-.game-ui {
-
+body {
+  background-color: var(--black-bg);
 }
 
 #board {
-    border: 1px solid gray;
+  border: 1px solid var(--blue-border);
 }
 
-.cell {
-
-}
